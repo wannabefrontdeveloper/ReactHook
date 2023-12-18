@@ -12,24 +12,25 @@ const Info = () => {
     name: "",
     nickname: "",
   });
-  const [name, nickname] = state;
+
+  const { name, nickname } = state;
+
   const onChange = (e) => {
-    dispatch(e.target);
+    dispatch({ name: e.target.name, value: e.target.value });
   };
 
   return (
     <div>
       <div>
-        <input value={name} onChange={onChange} />
-        <input value={nickname} onChange={onChange} />
+        <input name="name" value={name} onChange={onChange} />
+        <input name="nickname" value={nickname} onChange={onChange} />
       </div>
       <div>
         <div>
           <b>이름:</b> {name}
         </div>
         <div>
-          <b>닉네임:</b>
-          {nickname}
+          <b>닉네임:</b> {nickname}
         </div>
       </div>
     </div>
